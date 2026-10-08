@@ -55,6 +55,27 @@ Tombol volume ditangkap hanya ketika wrapper Android ini aktif. Di luar aplikasi
 
 Jangan mengganti seluruh repository lama dengan folder `webapp`. Salin/merge perubahan `webapp/app/page.tsx` ke project Next.js lama, dan tambahkan folder `android-native/` sebagai project baru di repository jika ingin menyimpan kode wrapper. Periksa `git diff` sebelum commit. Jangan commit `.env.local`, token, atau password.
 
+## E. Deploy ke Vercel
+
+Repository sudah siap deploy. Aplikasi Next.js ada di subfolder `webapp/`, jadi Vercel perlu diarahkan ke sana.
+
+1. Buka https://vercel.com dan login dengan akun GitHub `kanza06`.
+2. **Add New → Project**, lalu import repository `Muhammad_Amin`.
+3. Pada bagian **Root Directory**, klik **Edit** dan pilih folder **`webapp`**. Ini wajib — kalau dibiarkan di root, Vercel tidak menemukan project Next.js.
+4. **Framework Preset** terdeteksi otomatis sebagai **Next.js**. Build & Output settings biarkan default (`npm run build`, `.next`).
+5. **Environment Variables**: tidak ada yang diperlukan (aplikasi ini tanpa backend/database).
+6. Klik **Deploy** dan tunggu sampai selesai.
+
+Setelah online, alamatnya seperti `https://muhammad-amin.vercel.app`. Karena sudah **HTTPS**, akses kamera (`getUserMedia`) bekerja normal.
+
+### Hubungkan ke aplikasi Android
+
+Aplikasi wrapper (bagian B) tidak lagi memakai IP LAN, cukup isi alamat Vercel saat pertama dibuka, misalnya `https://muhammad-amin.vercel.app`. Ini menghilangkan kebutuhan HTTPS manual dan masalah `getUserMedia` pada HTTP/IP LAN.
+
+### Catatan `vercel.json`
+
+File `vercel.json` di root menambahkan header `Permissions-Policy: camera=*, microphone=*` agar browser dan WebView mengizinkan kamera. Konfigurasi `buildCommand`/`outputDirectory` di dalamnya berlaku bila Root Directory diatur ke `webapp`.
+
 ## Batasan yang perlu diketahui
 
 - Ini source project Android, belum diuji build pada perangkat pengguna dan bukan APK siap instal.
