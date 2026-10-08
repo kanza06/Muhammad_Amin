@@ -1,0 +1,25 @@
+# --- Node / Next.js (webapp) ---
+node_modules/
+.next/
+out/
+.env
+.env.local
+.env*.local
+
+# --- Android native ---
+android-native/.gradle/
+android-native/.idea/
+android-native/local.properties
+android-native/build/
+android-native/app/build/
+android-native/captures/
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
