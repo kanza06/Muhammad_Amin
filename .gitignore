@@ -6,7 +6,9 @@ out/
 .env.local
 .env*.local
 
-# --- Android native ---
+# --- Android native (tidak di-upload; hanya webapp yang di repo) ---
+android-native/
+README-ANDROID-NATIVE-BRIDGE-ID.md
 android-native/.gradle/
 android-native/.idea/
 android-native/local.properties
