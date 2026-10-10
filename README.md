@@ -75,3 +75,9 @@ Pilihan disimpan pada browser/perangkat yang sama. Saat tombol dikenali browser,
 ## Android native remote shutter (Mi Pad 6)
 
 Jika remote Bluetooth hanya mengubah volume dan Chrome tidak mengirim event tombol ke web, gunakan source wrapper Android pada folder `android-native/` di paket **KAHFI-PHOTOBOOTH-ANDROID-NATIVE-BRIDGE.zip**. Wrapper menangkap Volume UP/DOWN secara native lalu mengirim event `kahfi-native-shutter` ke halaman Capture. Lihat `README-ANDROID-NATIVE-BRIDGE-ID.md` pada root paket untuk petunjuk lengkap.
+
+## Kamera eksternal Android / NEMESIS A40 MORPHE
+
+Tombol Settings di header membuka pengaturan kamera, timer, dan orientasi. Tekan **Pindai ulang** untuk meminta izin kamera dan memperbarui daftar perangkat. Pilihan kamera disimpan lokal dan digunakan saat masuk ke layar Capture; tombol **Pindai / sambungkan ulang kamera** dapat dipakai untuk mencoba lagi.
+
+Catatan: Android hanya menampilkan kamera USB ke browser/WebView jika firmware menyediakan dukungan UVC/external camera provider dan perangkat terhubung melalui OTG yang mendukung data. Jika webcam tidak muncul di daftar kamera Android, JavaScript tidak dapat memaksa perangkat terdeteksi. Coba adaptor USB-C OTG data/hub berdaya, tutup aplikasi lain yang menggunakan kamera, dan uji dengan aplikasi kamera USB/UVC. Jika sistem tidak mengekspos kamera, solusi penuh memerlukan modul UVC native langsung, bukan sekadar izin WebView.

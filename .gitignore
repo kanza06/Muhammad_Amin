@@ -25,3 +25,7 @@ android-native/captures/
 Thumbs.db
 *.log
 npm-debug.log*
+
+# --- Build info / backup ---
+tsconfig.tsbuildinfo
+*.bak
